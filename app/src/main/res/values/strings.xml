@@ -1,0 +1,21 @@
+<resources>
+    <!-- Títulos do Aplicativo ImcApp e das Telas -->
+    <string name="app_name">ImcApp</string>
+    <string name="app_tela2">Entrada de Dados</string>
+    <string name="app_tela3">Resultados Finais</string>
+
+    <!-- Textos da Tela1 -->
+    <string name="texto_peso">Peso (Kg):</string>
+    <string name="texto_altura">Altura (m):</string>
+    <string name="hint_peso">Entre com o peso em quilogramas.</string>
+    <string name="hint_altura">Entre com a altura em metro(s).</string>
+    <string name="texto_button_calcular">Calcular IMC</string>
+
+    <!-- Textos da Tela2 -->
+    <string name="texto_resultados_finais">Resultados Finais:</string>
+    <string name="texto_resultado_imc">Resultado do IMC:</string>
+    <string name="texto_recomendacao">Recomendação:</string>
+    <string name="texto_button_voltar">Voltar</string>
+    <string name="texto_button_classificacao_imc">Classificação</string>
+    <string name="texto_image_tabela_imc">Tabela IMC</string>
+</resources>
