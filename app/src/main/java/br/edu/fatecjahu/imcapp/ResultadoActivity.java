@@ -10,8 +10,33 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.core.content.ContextCompat;
 
 public class ResultadoActivity extends AppCompatActivity {
+
+    // Metodo para calcular o imc
+    private double calcularIMC(float peso, float altura) {
+        double imc = peso / (altura * altura);
+        return Math.round(imc * 10.0) / 10.0;
+    }
+
+    // Metodo para classificar o IMC
+    private String classificarIMC(double imc) {
+        if (imc < 19.0) {
+            return "Abaixo do Peso Normal";
+        } else if (imc >= 19.0 && imc <= 24.9) {
+            return "Peso Normal";
+        } else if (imc >= 25.0 && imc <= 29.9) {
+            return "Sobrepeso";
+        } else if (imc >= 30.0 && imc <= 34.9) {
+            return "Obesidade Grau I";
+        } else if (imc >= 35.0 && imc <= 39.9) {
+            return "Obesidade Grau II";
+        } else {
+            return "Obesidade Grau III ou Obesidade Mórbida";
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,19 +48,39 @@ public class ResultadoActivity extends AppCompatActivity {
             return insets;
         });
 
-        Bundle args = getIntent().getExtras();
+        Bundle meusDadosIMC = getIntent().getExtras();
 
-        Float peso = args.getFloat("peso");
-        Float altura = args.getFloat("altura");
+        Float peso = meusDadosIMC.getFloat("peso");
+        Float altura = meusDadosIMC.getFloat("altura");
+
+
+        // Armazenando cálculo do imc
+        double imc = calcularIMC(peso, altura);
+
+        // Armazenando classificação do imc
+        String classificacaoIMC = classificarIMC(imc);
 
         //1. Vincula os TextViews do layout
         TextView tvPesoResultado = findViewById(R.id.tvPesoResultado);
         TextView tvAlturaResultado = findViewById(R.id.tvAlturaResultado);
         TextView tvRecomendacao2 = findViewById(R.id.tvRecomendacao2);
+        TextView tvResultado2 = findViewById(R.id.tvResultado2);
 
-        //2. Define os textos recebidos
+        //2. Define os textos para serem exibidos na activity
         tvPesoResultado.setText(String.valueOf(peso));
         tvAlturaResultado.setText(String.valueOf(altura));
+        tvResultado2.setText("O IMC é igual a " + imc + ", portanto, você está na faixa de " + classificacaoIMC);
+
+        // Definir se precisa ou não fazer regime
+        if (imc >= 25.0) {
+            tvRecomendacao2.setText("Sim é necessário fazer regime");
+            tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
+            tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, R.color.recomendacao_red));
+        } else {
+            tvRecomendacao2.setText("Não precisa fazer regime");
+            tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
+            tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, R.color.recomendacao_green));
+        }
 
         //3. Configura botão Voltar
         Button btnVoltar = findViewById(R.id.btnVoltar);

@@ -70,7 +70,7 @@ public class EntradaActivity extends AppCompatActivity {
                     //7. Cria o canal de comunicação Intent (da tela EntradaActivity para ResultadoActivity)
                     Intent intent = new Intent(getContext(0), ResultadoActivity.class);
 
-                    //8. Criar Bundle com os dados(altura, peso, resultado)
+                    //8. Criar Bundle com os dados(altura, peso)
                     Bundle dadosIMC = new Bundle();
 
                     dadosIMC.putFloat("peso", peso);

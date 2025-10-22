@@ -10,7 +10,7 @@
     <TextView
         android:id="@+id/tvRecomendacao2"
         android:layout_width="371dp"
-        android:layout_height="82dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
         android:textSize="16sp"
@@ -118,7 +118,7 @@
 
     <Button
         android:id="@+id/btnVoltar"
-        android:layout_width="365dp"
+        android:layout_width="371dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
