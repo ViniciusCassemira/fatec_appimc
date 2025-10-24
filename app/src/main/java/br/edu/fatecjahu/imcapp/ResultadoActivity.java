@@ -14,6 +14,8 @@ import androidx.core.content.ContextCompat;
 
 public class ResultadoActivity extends AppCompatActivity {
 
+    public String cor_fundo = "";
+
     // Metodo para calcular o imc
     private double calcularIMC(float peso, float altura) {
         double imc = peso / (altura * altura);
@@ -23,16 +25,22 @@ public class ResultadoActivity extends AppCompatActivity {
     // Metodo para classificar o IMC
     private String classificarIMC(double imc) {
         if (imc < 19.0) {
+            cor_fundo = "red";
             return "Abaixo do Peso Normal";
         } else if (imc >= 19.0 && imc <= 24.9) {
+            cor_fundo = "green";
             return "Peso Normal";
         } else if (imc >= 25.0 && imc <= 29.9) {
+            cor_fundo = "yellow";
             return "Sobrepeso";
         } else if (imc >= 30.0 && imc <= 34.9) {
+            cor_fundo = "orange";
             return "Obesidade Grau I";
         } else if (imc >= 35.0 && imc <= 39.9) {
+            cor_fundo = "dark_orange";
             return "Obesidade Grau II";
         } else {
+            cor_fundo = "dark_red";
             return "Obesidade Grau III ou Obesidade Mórbida";
         }
     }
@@ -53,7 +61,6 @@ public class ResultadoActivity extends AppCompatActivity {
         Float peso = meusDadosIMC.getFloat("peso");
         Float altura = meusDadosIMC.getFloat("altura");
 
-
         // Armazenando cálculo do imc
         double imc = calcularIMC(peso, altura);
 
@@ -71,15 +78,17 @@ public class ResultadoActivity extends AppCompatActivity {
         tvAlturaResultado.setText(String.valueOf(altura));
         tvResultado2.setText("O IMC é igual a " + imc + ", portanto, você está na faixa de " + classificacaoIMC);
 
+        // Configurando cores na parte de recomendação
+        tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
+        int colorId = getResources().getIdentifier(cor_fundo, "color", getPackageName());
+        tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, colorId));
+
+
         // Definir se precisa ou não fazer regime
         if (imc >= 25.0) {
             tvRecomendacao2.setText("Sim é necessário fazer regime");
-            tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
-            tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, R.color.recomendacao_red));
         } else {
             tvRecomendacao2.setText("Não precisa fazer regime");
-            tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
-            tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, R.color.recomendacao_green));
         }
 
         //3. Configura botão Voltar
