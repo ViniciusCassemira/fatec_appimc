@@ -78,17 +78,21 @@ public class ResultadoActivity extends AppCompatActivity {
         tvAlturaResultado.setText(String.valueOf(altura));
         tvResultado2.setText("O IMC é igual a " + imc + ", portanto, você está na faixa de " + classificacaoIMC);
 
-        // Configurando cores na parte de recomendação
-        tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
+        // Configurando cores na parte de resultado
+        tvResultado2.setTextColor(ContextCompat.getColor(this, R.color.white));
         int colorId = getResources().getIdentifier(cor_fundo, "color", getPackageName());
-        tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, colorId));
+        tvResultado2.setBackgroundColor(ContextCompat.getColor(this, colorId));
 
+        // Configurando cor de texto da recomendação
+        tvRecomendacao2.setTextColor(ContextCompat.getColor(this, R.color.white));
 
-        // Definir se precisa ou não fazer regime
+        // Definir se precisa ou não fazer regime e selecionar sua cor de fundo
         if (imc >= 25.0) {
             tvRecomendacao2.setText("Sim é necessário fazer regime");
+            tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, R.color.recomendacao_red));
         } else {
             tvRecomendacao2.setText("Não precisa fazer regime");
+            tvRecomendacao2.setBackgroundColor(ContextCompat.getColor(this, R.color.recomendacao_green));
         }
 
         //3. Configura botão Voltar
