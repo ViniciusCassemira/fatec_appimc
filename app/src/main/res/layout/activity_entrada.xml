@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/edtAltura"
-        android:layout_width="365dp"
+        android:layout_width="333dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -18,14 +18,14 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvAltura"
         tools:ignore="TextContrastCheck" />
 
     <EditText
         android:id="@+id/edtPeso"
-        android:layout_width="365dp"
+        android:layout_width="333dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
@@ -34,7 +34,7 @@
         android:importantForAutofill="no"
         android:inputType="text"
         android:minHeight="48dp"
-        android:textSize="25sp"
+        android:textSize="20sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPeso"
         tools:ignore="TextContrastCheck" />
@@ -52,9 +52,9 @@
 
     <Button
         android:id="@+id/btnCalcular"
-        android:layout_width="365dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
+        android:layout_width="333dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="20dp"
         android:text="@string/texto_button_calcular"
         android:textAllCaps="true"
