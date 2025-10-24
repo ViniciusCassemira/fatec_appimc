@@ -13,6 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:gravity="center"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvRecomendacao" />
@@ -34,6 +35,7 @@
         android:layout_height="82dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="5dp"
+        android:gravity="center"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvResultado" />
