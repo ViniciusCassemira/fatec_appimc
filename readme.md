@@ -14,9 +14,11 @@ como parte de estudos da matéria Programação para Dispositivos Móveis. O apl
 ## Principais telas
 
 Tela de inserção dos dados
+
 <img src="./source/input.jpeg" style="width:300px" alt="Tela de com a inserção dos dados">
 
 Tela com os resultados
+
 <img src="./source/underweight.jpeg" style="width:300px" alt="Tela com os resultados">
 <img src="./source/normal_weight.jpeg" style="width:300px" alt="Tela com os resultados">
 <img src="./source/overweight.jpeg" style="width:300px" alt="Tela com os resultados">
